@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 export const Reviews = ({ reviews }) => {
   const { movieId } = useParams();
-  // const cast = casts.find((cast) => cast.id === movieId);
+  const review = reviews.find((review) => review.id === movieId);
   return (
     <>
       <ul>

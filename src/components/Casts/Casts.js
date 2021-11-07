@@ -9,24 +9,24 @@ export const Casts = ({ casts }) => {
   const cast = casts.find((cast) => cast.id === movieId);
   return (
     <>
-      {/* <ul>
+      <ul>
         {casts.map((cast) => (
-          <li key={movieId}> */}
-      <img
-        src={`${IMG_URL}${cast.profile_path}`}
-        alt={cast.name}
-        title={cast.title}
-        className={s.poster}
-      />
-      <Title text={cast.name} />
-      <p className={s.name}>{cast.name}</p>
-      <p>
-        <span>Character: </span>
-        {cast.character}
-      </p>
-      {/* </li>
+          <li key={movieId}>
+            <img
+              src={`${IMG_URL}${cast.profile_path}`}
+              alt={cast.name}
+              title={cast.title}
+              className={s.poster}
+            />
+            <Title text={cast.name} />
+            <p className={s.name}>{cast.name}</p>
+            <p>
+              <span>Character: </span>
+              {cast.character}
+            </p>
+          </li>
         ))}
-      </ul> */}
+      </ul>
     </>
   );
 };

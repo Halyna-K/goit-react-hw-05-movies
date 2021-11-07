@@ -53,7 +53,7 @@ const MovieDetailsPage = () => {
       {movie && (
         <nav>
           <ul>
-            <li key={movie.id}>
+            <li key={movieId}>
               <NavLink
                 to={
                   // {
