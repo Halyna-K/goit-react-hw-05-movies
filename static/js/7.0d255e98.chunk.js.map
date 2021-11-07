@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/NotFound/NotFound.js"],"names":["NotFound","text"],"mappings":"2JAGeA,UAHC,SAAC,GAAW,IAAVC,EAAS,EAATA,KAChB,OAAQ,4BAAIA","file":"static/js/7.0d255e98.chunk.js","sourcesContent":["const NotFound =({text})=> {\n  return (<p>{text}</p>)\n}\nexport default NotFound;\n"],"sourceRoot":""}
