@@ -9,18 +9,17 @@ export const Casts = ({ casts }) => {
   const cast = casts.find((cast) => cast.id === movieId);
   return (
     <>
-      <ul>
+      <ul className={s.list}>
         {casts.map((cast) => (
-          <li key={movieId}>
+          <li key={movieId} className={s.item}>
             <img
               src={`${IMG_URL}${cast.profile_path}`}
               alt={cast.name}
               title={cast.title}
-              className={s.poster}
+              className={s.img}
             />
-            <Title text={cast.name} />
-            <p className={s.name}>{cast.name}</p>
-            <p>
+            <Title text={cast.name} className={s.text} />
+            <p className={s.text}>
               <span>Character: </span>
               {cast.character}
             </p>

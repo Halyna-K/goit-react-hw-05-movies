@@ -14,6 +14,7 @@ import Title from "../../components/Title/Title";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { Casts } from "../../components/Casts/Casts";
 import { Reviews } from "../../components/Reviews/Reviews";
+import { getByDisplayValue } from "@testing-library/dom";
 const MovieDetailsPage = () => {
   const match = useRouteMatch();
   const history = useHistory();
@@ -46,13 +47,11 @@ const MovieDetailsPage = () => {
 
       {movie && <MovieCard movie={movie} />}
 
-      <hr />
-
       <Title text={"Additional information"} />
 
       {movie && (
         <nav>
-          <ul>
+          <ul style={{ display: "flex", justifyContent: "space-evenly" }}>
             <li key={movieId}>
               <NavLink
                 to={
@@ -64,12 +63,26 @@ const MovieDetailsPage = () => {
                   // }
                   `${match.url}/cast`
                 }
+                style={{
+                  fontSize: "calc(8px + 2vmin)",
+                  fontWeight: "bold",
+                }}
+                activeStyle={{ color: "black" }}
               >
                 Casts
               </NavLink>
             </li>
             <li key={movie.id}>
-              <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
+              <NavLink
+                to={`${match.url}/reviews`}
+                style={{
+                  fontSize: "calc(8px + 2vmin)",
+                  fontWeight: "bold",
+                }}
+                activeStyle={{ color: "black" }}
+              >
+                Reviews
+              </NavLink>
             </li>
           </ul>
         </nav>

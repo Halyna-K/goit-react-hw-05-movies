@@ -19,14 +19,14 @@
   /* height: 100%; */
 
   object-fit: cover;
-  object-position: top;
+  /* object-position: top; */
 }
 
 .text {
   display: flex;
   justify-content: center;
 
-  font-size: calc(6px + 2vmin);
+  font-size: calc(4px + 2vmin);
 }
 
 .vote {

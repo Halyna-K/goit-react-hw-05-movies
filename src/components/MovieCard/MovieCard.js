@@ -24,7 +24,10 @@ export const MovieCard = ({ movie }) => {
 
           <ul>
             {movie.genres.map((genre) => (
-              <li key={genre.id}>{genre.name},</li>
+              <li key={genre.id}>
+                {genre.name}
+                <br />
+              </li>
             ))}
           </ul>
         </div>
