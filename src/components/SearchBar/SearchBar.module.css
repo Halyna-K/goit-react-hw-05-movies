@@ -1,13 +1,12 @@
 .SearchBar {
   top: 10%;
   left: 10%;
-  z-index: 1100;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 64px;
   padding: 12px 24px;
-  /* color: #fff; */
 }
 
 .SearchForm {
@@ -16,7 +15,7 @@
   align-items: center;
   width: 100%;
   max-width: 600px;
-  background-color: transparent;
+  /* background-color: #fff; */
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -28,7 +27,7 @@
   width: 48px;
   height: 48px;
   border: 0;
-  background-image: url("https://image.flaticon.com/icons/svg/149/149852.svg");
+  background-image: url("../../images/19963374191582988857.svg");
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -62,6 +61,7 @@
   border: none;
   outline: none;
   padding: 0 5px;
+  color: black;
 }
 
 .input::placeholder {

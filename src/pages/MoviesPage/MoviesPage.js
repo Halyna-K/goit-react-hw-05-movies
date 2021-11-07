@@ -1,23 +1,13 @@
 import { useEffect, useState } from "react";
-import {
-  Link,
-  Route,
-  useRouteMatch,
-  useLocation,
-  useHistory,
-  useParams,
-} from "react-router-dom";
-// import PropTypes from "prop-types";
+import { useLocation, useHistory } from "react-router-dom";
 import { useToggle } from "../../hooks/useToggle";
 import api from "../../Services/api";
 import Button from "../../components/Button/Button";
-// import Title from "../../components/Title/Title";
 import LoaderSpinner from "../../components/Loader/Loader";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { MoviesList } from "../../components/MoviesList/MoviesList";
 
 const MoviesPage = () => {
-  const match = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
   const [movies, setMovies] = useState(null);

@@ -9,18 +9,20 @@ import Footer from "./components/Footer/Footer";
 // import NotFound from './pages/NotFound/NotFound';
 
 const HomePage = lazy(() =>
-  import("./pages/HomePage/HomePage" /* webpackChunkName: Home Page */)
+  import("./pages/HomePage/HomePage" /* webpackChunkName: "HomePage" */)
 );
 const MoviesPage = lazy(() =>
-  import("./pages/MoviesPage/MoviesPage" /* webpackChunkName: Movies Page */)
+  import("./pages/MoviesPage/MoviesPage" /* webpackChunkName: "MoviesPage" */)
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    "./pages/MovieDetailsPage/MovieDetailsPage" /* webpackChunkName: Movie Details Page */
+    "./pages/MovieDetailsPage/MovieDetailsPage" /* webpackChunkName: "MovieDetailsPage" */
   )
 );
 const NotFound = lazy(() =>
-  import("./pages/NotFound/NotFound" /* webpackChunkName: Not Found Page */)
+  import(
+    "./components/NotFound/NotFound" /* webpackChunkName: "NotFoundPage" */
+  )
 );
 
 const App = () => {
@@ -42,7 +44,6 @@ const App = () => {
 
             <Route>
               <NotFound text="Page not found" />
-              {/* <NotFound text='We don't have reviews for this movie.'/> */}
             </Route>
           </Switch>
         </Suspense>

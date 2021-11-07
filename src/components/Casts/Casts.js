@@ -6,12 +6,12 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 export const Casts = ({ casts }) => {
   const { movieId } = useParams();
-  const cast = casts.find((cast) => cast.id === movieId);
+  casts.find((cast) => cast.id === movieId);
   return (
     <>
       <ul className={s.list}>
         {casts.map((cast) => (
-          <li key={movieId} className={s.item}>
+          <li key={cast.id} className={s.item}>
             <img
               src={`${IMG_URL}${cast.profile_path}`}
               alt={cast.name}

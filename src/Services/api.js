@@ -47,11 +47,11 @@ const fetchReviews = async (movieId) => {
     `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
   );
 };
-
-export default {
+const api = {
   fetchTrends,
   fetchMovies,
   fetchMovieById,
   fetchCast,
   fetchReviews,
 };
+export default api;

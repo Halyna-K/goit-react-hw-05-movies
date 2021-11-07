@@ -3,7 +3,8 @@ import Loader from "react-loader-spinner";
 export default function LoaderSpinner() {
   return (
     <Loader
-      className="container"
+      style={{ textAlign: "center" }}
+      // className="container"
       type="Grid"
       color="#3f51b5"
       height={100}

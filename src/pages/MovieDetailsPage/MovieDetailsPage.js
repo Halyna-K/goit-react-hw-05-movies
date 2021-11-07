@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import {
   NavLink,
   Route,
@@ -9,12 +9,14 @@ import {
 } from "react-router-dom";
 import PropTypes from "prop-types";
 import api from "../../Services/api";
+import LoaderSpinner from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
 import Title from "../../components/Title/Title";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { Casts } from "../../components/Casts/Casts";
 import { Reviews } from "../../components/Reviews/Reviews";
-import { getByDisplayValue } from "@testing-library/dom";
+// import NotFound from "../../components/NotFound/NotFound";
+
 const MovieDetailsPage = () => {
   const match = useRouteMatch();
   const history = useHistory();
@@ -24,21 +26,24 @@ const MovieDetailsPage = () => {
   const [casts, setCasts] = useState(null);
   const [reviews, setReviews] = useState(null);
   console.log(match);
+  console.log(history);
+  console.log(location);
 
   useEffect(() => {
     api.fetchMovieById(movieId).then(setMovie);
   }, [movieId]);
-  console.log(movie);
+  // console.log(movie);
 
   useEffect(() => {
     api.fetchCast(movieId).then((data) => setCasts(data.cast));
     api.fetchReviews(movieId).then((data) => setReviews(data.results));
   }, [movieId]);
-  console.log(casts);
-  console.log(reviews);
+  // console.log(casts);
+  // console.log(reviews);
 
   const onClickGoBack = () => {
-    history.push(location?.state?.from || "/");
+    history.push(location?.state?.from?.location ?? "/");
+    // history.push(location?.state?.from || "/");
   };
 
   return (
@@ -52,7 +57,7 @@ const MovieDetailsPage = () => {
       {movie && (
         <nav>
           <ul style={{ display: "flex", justifyContent: "space-evenly" }}>
-            <li key={movieId}>
+            <li key={movie.id}>
               <NavLink
                 to={
                   // {
@@ -87,13 +92,15 @@ const MovieDetailsPage = () => {
           </ul>
         </nav>
       )}
-
-      <Route path={`${match.url}/cast`}>
-        {movie && <Casts casts={casts} />}
-      </Route>
-      <Route path={`${match.url}/reviews`}>
-        {movie && <Reviews reviews={reviews} />}
-      </Route>
+      <Suspense fallback={<LoaderSpinner />}>
+        <Route path={`${match.url}/cast`}>
+          {casts && <Casts casts={casts} />}
+        </Route>
+        <Route path={`${match.url}/reviews`}>
+          {reviews && <Reviews reviews={reviews} />}
+          {/* <NotFound text="We don't have reviews for this movie" />; */}
+        </Route>
+      </Suspense>
     </>
   );
 };
