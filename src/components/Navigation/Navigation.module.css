@@ -1,0 +1,16 @@
+.navigation {
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.navLink {
+  color: #276c6c;
+  font-size: calc(12px + 2vmin);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.activeNavLink {
+  color: #44bdbd;
+}

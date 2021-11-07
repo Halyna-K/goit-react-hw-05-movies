@@ -1,0 +1,13 @@
+.header {
+  align-items: center;
+  height: 50px;
+  background: linear-gradient(to bottom, #0d3e46, #0d3f46af, #0d3f4664);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  /* border-top: 1px solid #ececec; */
+}
+
+.text {
+  text-align: center;
+  padding: 20px 0;
+}
