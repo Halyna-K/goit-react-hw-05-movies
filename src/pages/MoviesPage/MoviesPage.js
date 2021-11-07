@@ -15,6 +15,7 @@ const MoviesPage = () => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useToggle(false);
   const [error, setError] = useState(null);
+  // eslint-disable-next-line
   // const [result, setResult] = useState([]);
 
   useEffect(() => {
@@ -29,23 +30,24 @@ const MoviesPage = () => {
       });
     setPage((prev) => prev + 1);
   }, [query, page, error, setMovies]);
-  console.log(movies);
 
   const getQuery = ({ query, page }) => {
     setQuery(query);
     setMovies(movies);
-    if (!setQuery(query)) return setIsLoading(!isLoading);
+    if (!setQuery(query)) return;
+    setIsLoading(!isLoading);
   };
 
   const onClickGoBack = () => {
-    history.push(location?.state?.from || "/");
+    history.push(location?.state?.from?.location ?? "/");
   };
+
   // const onClickLoadMore = () => {
   //   api
   //     .fetchMovies(query, page)
   //     .then((result) => {
   //       setResult((prev) => [...prev, ...result]);
-  //       if (page == 1) {
+  //       if (page === 1) {
   //         scrollToBottom();
   //       }
   //     })
@@ -67,11 +69,10 @@ const MoviesPage = () => {
     <>
       <Button text="Go back" onClick={onClickGoBack} />
       <SearchBar getQuery={getQuery} />
+
       {isLoading && <LoaderSpinner />}
+
       {movies && <MoviesList movies={movies} />}
-      {/* {result.length >= 20 && (
-        <Button text="Load more" onClick={onClickLoadMore} />
-      )} */}
     </>
   );
 };

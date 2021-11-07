@@ -25,9 +25,9 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [casts, setCasts] = useState(null);
   const [reviews, setReviews] = useState(null);
-  console.log(match);
-  console.log(history);
-  console.log(location);
+  // console.log(match);
+  // console.log(history);
+  // console.log(location);
 
   useEffect(() => {
     api.fetchMovieById(movieId).then(setMovie);
@@ -43,7 +43,6 @@ const MovieDetailsPage = () => {
 
   const onClickGoBack = () => {
     history.push(location?.state?.from?.location ?? "/");
-    // history.push(location?.state?.from || "/");
   };
 
   return (
@@ -57,17 +56,9 @@ const MovieDetailsPage = () => {
       {movie && (
         <nav>
           <ul style={{ display: "flex", justifyContent: "space-evenly" }}>
-            <li key={movie.id}>
+            <li>
               <NavLink
-                to={
-                  // {
-                  //   pathname: `/movies/${movieId}`,
-                  //   state: {
-                  //     from: { location, label: `back to movies` },
-                  //   },
-                  // }
-                  `${match.url}/cast`
-                }
+                to={`${match.url}/cast`}
                 style={{
                   fontSize: "calc(8px + 2vmin)",
                   fontWeight: "bold",
@@ -77,7 +68,7 @@ const MovieDetailsPage = () => {
                 Casts
               </NavLink>
             </li>
-            <li key={movie.id}>
+            <li>
               <NavLink
                 to={`${match.url}/reviews`}
                 style={{
